@@ -125,7 +125,7 @@ function activatePDFButtons() {
               const invoiceTotal = "$" + order.data[0].amount;
               const paidAmount = "$" + inv.data.dbInvoice.amount_paid;
               const discount =  "$" + inv.data.dbInvoice.discount;
-              const balanceDue = (order.data[0].amount - inv.data.dbInvoice.amount_paid - inv.data.dbInvoice.discount);
+              let balanceDue = (order.data[0].amount - inv.data.dbInvoice.amount_paid - inv.data.dbInvoice.discount);
               let color = "blue";
               if (balanceDue > 0)
                 color = "red";

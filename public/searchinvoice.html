@@ -116,7 +116,7 @@
     </li>
   </ul>
 
-  <div class="col-sm-12 col-lg-10 bg-light py-5 px-lg-5" style="position: absolute; right: 800px;">
+  <div class="col-sm-12 col-lg-10 bg-light py-5 px-lg-5" style="position: absolute; margin-top: 80px; right: 500px;">
     <!-- SEARCH SECTION -->
     <div class="row m-0">
       <div class="container-fluid bg-yellow p-4">
@@ -140,14 +140,20 @@
     <!-- RESULT SECTION -->
     <!-- This section should be hidden on page load. -->
     <div class="row m-0 mt-5">
-      <div id="result-header" class="container-fluid">
+      <div id="result-header" class="container-fluid hidden">
         <!-- Table header-->
-        <div class="row table-header">
-          <div class="col-3"> Invoice #</div>
-          <div class="col-3"> Sales Order #</div>
-          <div class="col-3"> Invoice Date #</div>
-          <div class="col-3 text-right"> Invoice Amount</div>
-        </div>
+        <table id="table" class="highlight">
+          <thead id="table-head">
+            <tr>
+              <th>Invoice #</th>
+              <th>Sales Order #</th>
+              <th>Invoice Date</th>
+              <th>Invoice Amount</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+          </tbody>
+        </table>
       </div>
       <!-- Result Header Container for showing newly created customers. -->
       <div id="result-container" class="container-fluid">
