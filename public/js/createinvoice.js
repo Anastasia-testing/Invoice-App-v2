@@ -125,7 +125,13 @@ function activatePDFButtons() {
               const invoiceTotal = "$" + order.data[0].amount;
               const paidAmount = "$" + inv.data.dbInvoice.amount_paid;
               const discount =  "$" + inv.data.dbInvoice.discount;
-              const balanceDue = "$" + (order.data[0].amount - inv.data.dbInvoice.amount_paid - inv.data.dbInvoice.discount);
+              const balanceDue = (order.data[0].amount - inv.data.dbInvoice.amount_paid - inv.data.dbInvoice.discount);
+              let color = "blue";
+              if (balanceDue > 0)
+                color = "red";
+              else
+                color = "green";
+              balanceDue = "$" + balanceDue;
 
               const order_no = order.data[0].id
               const description = order.data[0].description
@@ -156,13 +162,13 @@ function activatePDFButtons() {
                       ]
                     }
                   },
-                  {text: 'Payment', style: 'header'},
+                  {text: 'Invoice Deatils', style: 'header'},
                   {
                     style: 'tableExample',
                     table: {
                       widths: ['auto', 'auto', 'auto', 'auto'],
                       body: [
-                        [{text: 'Invoice Total', fillColor: 'grey', color: 'white'}, {text: 'Paid Amount', fillColor: 'grey', color: 'white'}, {text: 'Balance', fillColor: 'grey', color: 'white'}, {text: 'Discounted Amount', fillColor: 'grey', color: 'red'}],
+                        [{text: 'Invoice Total', fillColor: 'grey', color: 'white'}, {text: 'Paid Amount', fillColor: 'grey', color: 'white'}, {text: 'Discount', fillColor: 'grey', color: 'white'}, {text: 'Balance Due', fillColor: 'grey', color: color}],
                         [`$ ${invoiceTotal}`, `$ ${paidAmount}`, `$ ${discount}`, `$ ${balanceDue}`]
                       ]
                     }

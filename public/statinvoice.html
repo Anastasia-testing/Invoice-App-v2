@@ -127,16 +127,28 @@
     <div id="piechart"></div>
 
     <!-- SALES ORDER SUB REPORT-->
-    <div class="row sub-report-section-text mt-5">
-      <div class="col p-0">
-        <h5>Sales Order</h5>
+    <div id="report-area" class="hidden">
+      <div class="row sub-report-section-text mt-5">
+        <div class="col p-0">
+          <h5>Sales Order</h5>
+        </div>
       </div>
-    </div>
-    <!-- Table header-->
-    <!-- <div class="col-2 text-center"> Created At</div> -->
-    <div class="row">
-      <div id="order-sub-report" class="container-fluid">
-        <!-- the found sales order is to show here -->
+      <!-- Table header-->
+      <!-- <div class="col-2 text-center"> Created At</div> -->
+      <div id="report-table" style="margin-bottom: 50px; margin-top: 20px;">
+        <table id="table" class="highlight">
+          <thead id="table-head">
+            <tr>
+              <th>Order ID</th>
+              <th>Sales Order ID</th>
+              <th>Total Amount</th>
+              <th>Discount</th>
+              <th>Amount Paid</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+          </tbody>
+        </table>
       </div>
     </div>
 

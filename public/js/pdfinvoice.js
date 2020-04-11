@@ -56,6 +56,12 @@ axios.get(`/api/invoices/${invoiceID}`).then(invoice => {
         const paidAmount = document.getElementById("paid-amount");
         const discountEl = document.getElementById("discounted-amount");
         const balanceDue = document.getElementById("balance-due");
+        let color = "blue";
+        if (balanceDue > 0)
+          color = "red";
+        else
+          color = "green";
+        balanceDue = "$" + balanceDue;
 
         const totalInvoice = await totalInvoiceAmt;
         const discountAmt = await discount;
@@ -112,13 +118,13 @@ axios.get(`/api/invoices/${invoiceID}`).then(invoice => {
                 ]
               }
             },
-            // {text: 'Payment', style: 'header'},
+            {text: 'Invoice Details', style: 'header'},
             {
               style: 'tableExample',
               table: {
                 widths: ['auto', 'auto', 'auto', 'auto'],
                 body: [
-                  [{text: 'Invoice Total', fillColor: 'grey', color: 'white'}, {text: 'Paid Amount', fillColor: 'grey', color: 'white'}, {text: 'Balance', fillColor: 'grey', color: 'white'}, {text: 'Discounted Amount', fillColor: 'grey', color: 'red'}],
+                  [{text: 'Invoice Total', fillColor: 'grey', color: 'white'}, {text: 'Paid Amount', fillColor: 'grey', color: 'white'}, {text: 'Discount', fillColor: 'grey', color: 'white'}, {text: 'Balance Due', fillColor: 'grey', color: color}],
                   [`$ ${invoiceTotal}`, `$ ${paidAmount}`, `$ ${discountEl}`, `$ ${balanceDue}`]
                 ]
               }
